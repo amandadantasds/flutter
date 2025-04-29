@@ -1,11 +1,11 @@
-class Pizza {
+class Pizza { //define o objeto pizza
   final String name;
   final String ingredients;
   final String photoName;
   final int price;
   final bool soldOut;
 
-  Pizza({
+  Pizza({ //inicializa o objeto pizza
     required this.name,
     required this.ingredients,
     required this.photoName,
@@ -14,6 +14,7 @@ class Pizza {
   });
 }
 
+//cria uma listade pizzas
 List<Pizza> pizzaData = [
   Pizza(
     name: 'Focaccia',

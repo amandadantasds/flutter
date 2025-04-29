@@ -6,24 +6,24 @@ class Menu extends StatelessWidget {
   const Menu({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Pizza menu"),
+  Widget build(BuildContext context) { //constrói a tela
+    return Scaffold( 
+      appBar: AppBar( //menu
+        title: Text("Pizza menu"), 
       ),
-      body: Column(
+      body: Column( //monta uma coluna
         children: [
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
+          Expanded( //ocupa todo o espaço disponível dentro do column
+            child: SingleChildScrollView( //rola o conteúdo para baixo
+              child: Column(// une os cards
                 children:
-                    pizzaData.map((pizza) => MenuItem(pizza: pizza)).toList(),
+                    pizzaData.map((pizza) => MenuItem(pizza: pizza)).toList(), //monsta a lista de cards de acordo com o pizzaData
               ),
             ),
           ),
-          if (isOpen())
+          if (isOpen()) //se a função is open retorna true cria o botão de order now
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(12.0), 
               child: ElevatedButton(
                 onPressed: () {},
                 child: Text("Order now!"),
@@ -34,7 +34,7 @@ class Menu extends StatelessWidget {
     );
   }
 
-  bool isOpen() {
+  bool isOpen() { //verifica se a hora atual está entre o intervalo solicitado 
     var horaInicial = 19;
     var horaFinal = 23;
     var horaAtual = DateTime.now().hour;
@@ -42,7 +42,7 @@ class Menu extends StatelessWidget {
     return horaAtual >= horaInicial && horaAtual < horaFinal;
   }
 
-  List<MenuItem> _buildItems() {
+  List<MenuItem> _buildItems() { //faz a mesma coisa que a exibição dos cards lá em cima
     // Lista Pizza => Lista MenuItem
     List<MenuItem> items = [];
     for (var pizza in pizzaData) {
